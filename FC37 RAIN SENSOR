@@ -1,0 +1,12 @@
+#include <ESP8266WiFi.h>
+const int rainSensorPin = D1; // Connect the DO pin of the FC-37 sensor to GPIO pin D1
+void setup() {
+  Serial.begin(115200);
+  pinMode(rainSensorPin, INPUT);
+  WiFi.mode(WIFI_OFF); // Disable WiFi to save power
+}
+void loop() {
+  int rainValue = digitalRead(rainSensorPin);
+  Serial.println(rainValue);
+  delay(1000);
+}
